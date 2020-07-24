@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distance</title>
+    <style>
+      canvas {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>判断点到直线的距离</h1>
+    <ul>
+      <li>移动鼠标更改点的位置</li>
+      <li>按下[P, Q, R]来更换选中的点</li>
+      <li>按下[Esc]来取消选中的点</li>
+    </ul>
+    <canvas width="512" height="512"></canvas>
+    <h4 id="active">当前选中：</h4>
+    <ul>
+      <li id="line">P到直线QR的距离:</li>
+      <li id="lineSeq">P到线段QR的距离:</li>
+    </ul>
+    <script src="./index.js"></script>
+  </body>
+</html>
