@@ -8,30 +8,27 @@
   <body>
     <canvas width="500" height="500"></canvas>
     <script>
+      // Step1 获取上下文
       const canvas = document.querySelector("canvas");
       const gl = canvas.getContext("webgl");
 
+      // Step2 创建WebGL程序
       const vertex = `
-  attribute vec2 position;
-  varying vec3 color;
+        attribute vec2 position;
 
-  void main() {
-    gl_PointSize = 1.0;
-    color = vec3(0.5 + position * 0.5, 0.0);
-    gl_Position = vec4(position, 1.0, 1.0);
-  }
-`;
-
+        void main() {
+          gl_PointSize = 1.0;
+          gl_Position = vec4(position, 1.0, 1.0);
+        }
+      `;
       const fragment = `
-  precision mediump float;
-  varying vec3 color;
-
-  void main()
-  {
-    gl_FragColor = vec4(color, 1.0);
-  }    
-`;
-
+        precision mediump float;
+      
+        void main()
+        {
+          gl_FragColor = vec4(1.0,0.0, 0.0, 1.0);
+        }    
+      `;
       // 创建vertex shader
       const vertexShader = gl.createShader(gl.VERTEX_SHADER);
       gl.shaderSource(vertexShader, vertex);
@@ -50,16 +47,19 @@
 
       gl.useProgram(program);
 
+      // Step3 将数据存入缓冲区
       const points = new Float32Array([-1, -1, 0, 1, 1, -1]);
 
       const bufferId = gl.createBuffer();
       gl.bindBuffer(gl.ARRAY_BUFFER, bufferId);
       gl.bufferData(gl.ARRAY_BUFFER, points, gl.STATIC_DRAW);
 
+      // Step4 将缓冲区数据读取到GPU
       const vPosition = gl.getAttribLocation(program, "position");
       gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
       gl.enableVertexAttribArray(vPosition);
 
+      // Step5 执行着色器程序完成绘制
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLES, 0, points.length / 2);
     </script>

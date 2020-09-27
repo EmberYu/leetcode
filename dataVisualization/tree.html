@@ -26,9 +26,8 @@
         context.stroke();
 
         if (thickness > 2) {
-          // const left = dir + Math.PI / 12 + bias * (Math.random() - 0.5);
-          const left =
-            Math.PI / 4 + 0.5 * (dir + 0.2) + bias * (Math.random() - 0.5);
+          const left = dir + Math.PI / 12 + bias * (Math.random() - 0.5);
+          // const left = Math.PI / 4 + 0.5 * (dir + 0.2) + bias * (Math.random() - 0.5);
           drawBranch(
             context,
             v1,
@@ -37,9 +36,8 @@
             left,
             bias * 0.9
           );
-          // const right = dir - Math.PI / 12 + bias * (Math.random() - 0.5);
-          const right =
-            Math.PI / 4 + 0.5 * (dir - 0.2) + bias * (Math.random() - 0.5);
+          const right = dir - Math.PI / 12 + bias * (Math.random() - 0.5);
+          // const right = Math.PI / 4 + 0.5 * (dir - 0.2) + bias * (Math.random() - 0.5);
           drawBranch(
             context,
             v1,
@@ -64,7 +62,7 @@
       }
 
       const v0 = new Vector2D(256, 0);
-      drawBranch(ctx, v0, 50, 10, Math.PI / 2, 3);
+      drawBranch(ctx, v0, 50, 10, Math.PI / 2, 0);
     </script>
   </body>
 </html>
