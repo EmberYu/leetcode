@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.teal,
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+        ),
+        backgroundColor: Colors.red,
         body: Container(),
       ),
-    ),
-  );
+    );
+  }
 }
