@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,32 +13,64 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: <Widget>[
-              Container(
-                width: 100.0,
-                height: 100.0,
-                color: Colors.red,
+              CircleAvatar(
+                radius: 50.0,
+                backgroundImage: AssetImage('images/logo.png'),
+              ),
+              Text(
+                'Ori Gong',
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontSize: 40.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'FLUTTER DEVELOPER',
+                style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    fontSize: 20.0,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
               Container(
-                width: 100.0,
-                height: 100.0,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                color: Colors.white,
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: Row(
                   children: <Widget>[
-                    Container(
-                        width: 100.0, height: 100.0, color: Colors.yellow),
-                    Container(width: 100.0, height: 100.0, color: Colors.green),
+                    Icon(Icons.phone, color: Colors.teal),
+                    SizedBox(width: 10.0),
+                    Text(
+                      '+86 175 2045 0223',
+                      style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          fontSize: 20.0,
+                          color: Colors.teal.shade900),
+                    )
                   ],
                 ),
               ),
               Container(
-                width: 100.0,
-                height: 100.0,
-                color: Colors.blue,
-              ),
+                color: Colors.white,
+                padding: EdgeInsets.all(10.0),
+                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.mail, color: Colors.teal),
+                    SizedBox(width: 10.0),
+                    Text(
+                      'gong12339@hotmail.com',
+                      style: TextStyle(
+                          fontFamily: 'Source Sans Pro',
+                          fontSize: 20.0,
+                          color: Colors.teal.shade900),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
